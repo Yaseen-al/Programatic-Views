@@ -15,6 +15,11 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor(displayP3Red: 238/255, green: 242/255, blue: 245/255, alpha: 1 )
         setUI()
         // Do any additional setup after loading the view, typically from a nib.
+        configureNavBar()
+    }
+    func configureNavBar() {
+        let barButton = UIBarButtonItem(title: "test", style: .done, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = barButton
     }
     
     func setUI(){
@@ -22,7 +27,7 @@ class ViewController: UIViewController {
         //- frame The frame rectangle, which describes the view’s location and size in its superview’s coordinate system.
         //- CGRect: A structure that contains the location and dimensions of a rectangle.
         let imageView = UIImageView(frame: CGRect(x: 0, y: 20, width: view.frame.width, height: view.frame.height * 0.4))
-        imageView.image = #imageLiteral(resourceName: "Store Front")
+//        imageView.image = #imageLiteral(resourceName: "Store Front")
         // notice that the content mode will give you the options for all the fits and fills and orientation of the image
         // this is to add a shadow
         imageView.contentMode = .scaleAspectFill
@@ -56,7 +61,6 @@ class DescriptionView: UIView {
         self.content = content
         setLayout()
     }
-    //??????????????????????/ what is that function
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -101,7 +105,6 @@ class DishesImageView: UIView {
         for i in 0..<3{
             let imageView = UIImageView(frame: CGRect(x: currentXPosition, y: 20, width: (frame.width - 80)/3, height: (frame.width - 80)/3))
             imageView.image = i == 0 ? image1 : i == 1 ? image2 : image3
-//            imageView.contentMode = .scaleAspectFit
             addSubview(imageView)
             currentXPosition += ((frame.width - 80)/3) + 20
         }
